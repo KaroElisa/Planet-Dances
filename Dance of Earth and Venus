@@ -36,16 +36,20 @@ void draw(){
   }
   
   //VENUS
+  
   float t = millis()/1200.0f;
   int x = (int)(cx+r*cos(t));
   int y = (int)(cy+r*sin(t));
   
   //EARTH
+  //multiplying factor is the difference between the two planets: this creates the shapes
+  
   float t2 = millis()/(1200*0.6153846154);
   int x2 = (int)(cx+r2*cos(t2));
   int y2 = (int)(cy+r2*sin(t2));
   
   //LINE BETWEEN EARTH AND VENUS
+  
   line(x, y, x2, y2);
   
   if(millis() == 64000){
