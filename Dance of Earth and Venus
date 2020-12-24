@@ -1,0 +1,54 @@
+//PROOF OF CONCEPT
+//http://theextremeworld10.blogspot.com/2009/12/dances-of-planets.html
+
+//POSITION OF ROTATION
+int cx = 300;
+int cy = 300;
+
+//CIRCLE RADII
+int r = 190;
+int r2 = 250;
+
+//HSB VARIABLE
+float h = 0;
+
+void setup(){
+  size(600, 600);
+  background(0);
+  colorMode(HSB);
+  ellipseMode(CENTER);
+  
+  //TIME DELAY TO START SCREEN RECORDING
+  delay(5000);
+  
+}
+
+void draw(){
+  
+  //RAINBOW STROKE WITH HSB COLOR
+  stroke(h, 255, 255, 100);
+  strokeWeight(0.1);
+  
+  
+  h+=0.8;
+  if (h>270){
+    h=0;
+  }
+  
+  //VENUS
+  float t = millis()/1200.0f;
+  int x = (int)(cx+r*cos(t));
+  int y = (int)(cy+r*sin(t));
+  
+  //EARTH
+  float t2 = millis()/(1200*0.6153846154);
+  int x2 = (int)(cx+r2*cos(t2));
+  int y2 = (int)(cy+r2*sin(t2));
+  
+  //LINE BETWEEN EARTH AND VENUS
+  line(x, y, x2, y2);
+  
+  if(millis() == 64000){
+   scale(2);
+  }
+}
